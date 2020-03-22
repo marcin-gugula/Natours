@@ -133,10 +133,7 @@
     // BACk SIDE STYLING
 
     &_cta {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include position-absolute-center;
         width: 90%;
         text-align: center;
     }
