@@ -12,3 +12,42 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+// MEDIA QUERY
+/* after bootstrap 4:
+0--575.99          small phones
+576-767.99px:      phones
+768-991.99px:      Tablet portrait
+992-1199.99px:     Tablet landscape
+1200-1800:      Normal style
+1800.99+:          Big desktop  
+
+1em = 16px
+
+$breakpoint argument choices:
+- phone-sm
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone-sm {
+        @media only screen and (max-width: 35.99em) {@content};       //575.99px
+    }
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 47.99em) {@content};       //767.99px
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 61.99em) {@content};       //991.99px
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 74.99em) {@content};      //1199.99px
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.51em) {@content};      //1800px
+    }
+    
+}

@@ -10,19 +10,42 @@
         transition: all .2s;
         outline-offset: 1rem;
 
+        @include respond(phone){
+            float: left;
+            position: relative;
+            width: 33.33333%;
+            box-shadow: 0 1.5rem 3rem rgba($color-black, .2);
+
+        }
+
         &--img1{
             left: 0;
             top: -2rem;
+
+            @include respond(phone){
+                top: 0;
+                transform: scale(1.2);
+            }
         }
 
         &--img2{
             right: 0;
             top: 2rem;
+            @include respond(phone){
+                top: -1rem;
+                transform: scale(1.3);
+                z-index: 15;
+            }
         }
 
         &--img3{
             left: 20%;
             top: 10rem;
+            @include respond(phone){
+                top: 1rem;
+                left: 0;
+                transform: scale(1.1);
+            }
         }
 
         &:hover{
