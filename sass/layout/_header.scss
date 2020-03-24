@@ -16,9 +16,9 @@
     }
 
 
-    @media (min-resolution:192dpi) and (min-width:47.99em),
-            (-webkit-min-device-pixel-ratio:2) and (min-width:47.99em),
-            (min-width:112.51em){
+    @media only screen and (min-resolution:192dpi) and (min-width:47.99em),
+                only screen and (-webkit-min-device-pixel-ratio:2) and (min-width:47.99em),
+                only screen and (min-width:112.51em){
         background-image: linear-gradient(to right bottom,
         rgba($color-primary-light, 0.8),
         rgba($color-primary-dark, 0.8)),

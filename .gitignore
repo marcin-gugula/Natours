@@ -113,3 +113,7 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
+
+#css build files
+style.concat.css
+style.prefix.css
