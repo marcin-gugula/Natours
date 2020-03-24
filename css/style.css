@@ -87,6 +87,7 @@ body {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   margin-bottom: 6rem; }
   .heading-primary--main {
@@ -264,6 +265,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: all .8s ease; }
     .card__side--front {
@@ -288,17 +290,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
     .card__picture--1 {
       background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5-small.jpg); }
-      @media (min-resolution: 192dpi) and (min-width: 47.99em), (min-width: 112.51em) {
+      @media (min-resolution: 192dpi) and (min-width: 47.99em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 47.99em), (min-width: 112.51em) {
         .card__picture--1 {
           background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg); } }
     .card__picture--2 {
       background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-6-small.jpg); }
-      @media (min-resolution: 192dpi) and (min-width: 47.99em), (min-width: 112.51em) {
+      @media (min-resolution: 192dpi) and (min-width: 47.99em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 47.99em), (min-width: 112.51em) {
         .card__picture--2 {
           background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-6.jpg); } }
     .card__picture--3 {
       background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7-small.jpg); }
-      @media (min-resolution: 192dpi) and (min-width: 47.99em), (min-width: 112.51em) {
+      @media (min-resolution: 192dpi) and (min-width: 47.99em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 47.99em), (min-width: 112.51em) {
         .card__picture--3 {
           background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-7.jpg); } }
   .card__heading {
@@ -544,6 +546,11 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all .3s; }
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    .popup {
+      background-color: rgba(0, 0, 0, 0.3);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px); } }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -664,11 +671,16 @@ body {
     height: 15rem;
     float: left;
     position: relative;
-    -webkit-shape-outside: circle(50% at 50% 50%);
-    shape-outside: circle(50% at 50% 50%);
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%);
-    transform: translateX(-3rem) skewX(12deg); }
+    transform: translateX(-3rem) skewX(12deg);
+    overflow: hidden;
+    border-radius: 50%; }
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      .story__shape {
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        border-radius: none; } }
     @media only screen and (max-width: 35.99em) {
       .story__shape {
         transform: translateX(-3rem) skewX(0); } }
@@ -676,6 +688,7 @@ body {
     height: 100%;
     transform: translateX(-4rem) scale(1.4);
     transition: all 0.5s;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .story__text {
     transform: skewX(12deg); }
@@ -693,6 +706,7 @@ body {
     text-align: center;
     opacity: 0;
     transition: all 0.5s;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .story:hover .story__caption {
     opacity: 1;
@@ -756,13 +770,16 @@ body {
 
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
-  background-position: top;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  @media (min-resolution: 192dpi) and (min-width: 47.99em), (min-width: 112.51em) {
+  background-position: top; }
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    .header {
+      height: 95vh;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); } }
+  @media (min-resolution: 192dpi) and (min-width: 47.99em), (-webkit-min-device-pixel-ratio: 2) and (min-width: 47.99em), (min-width: 112.51em) {
     .header {
       background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg); } }
   @media only screen and (max-width: 47.99em) {
